@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #22bb80, rgb(51, 124, 158));
+            margin: 0;
+            border: 1px solid #8f1a1a;
+            border-radius: 5px;
+            font-size: 18px;
+
+
+        }
+
+        .calculator button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #28af8e;
+            color: #8f1a1a(184, 16, 16, 0.945);
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: large;
+            transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+        }
+
+        .calculator h2 {
+            text-align: center;
+            color: #110404;
+        }
+
+        .calculator {
+            background: rgb(240, 235, 235);
+            border: #0d0e0d10;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 20px #8f1a1a(158, 9, 9, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .calculator input {
+            display: block;
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px auto;
+            border: 1px solid #070404;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+
+<body>
+
+    <!-- Kalkulator -->
+    <div class="calculator">
+        <h2>Kalkulator Sederhana</h2>
+        <input type="number" id="num1" placeholder="Angka pertama">
+        <input type="number" id="num2" placeholder="Angka kedua">
+        <button onclick="calculate('+')">Tambah</button>
+        <button onclick="calculate('-')">Kurang</button>
+        <button onclick="calculate('*')">Kali</button>
+        <button onclick="calculate('/')">Bagi</button>
+        <h3>Hasil: <span id="result">0</span></h3>
+    </div>
+    <script>
+        // Kalkulator function
+        function calculate(operator) {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            let result = 0;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Masukkan kedua angka!");
+                return;
+            }
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+                default:
+                    alert("Operator tidak valid!");
+                    return;
+            }
+
+            document.getElementById("result").textContent = result;
+        }
+
+
+    </script>
+</body>
+</html>
